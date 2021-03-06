@@ -1,9 +1,11 @@
-class MyCircularQueue {
+package com.maartenmusic;
+
+public class CircularQueue {
     private int head;
     private int tail;
     private final int[] array;
 
-    public MyCircularQueue(int k) {
+    public CircularQueue(int k) {
         array = new int[k];
         reset();
     }
@@ -25,17 +27,17 @@ class MyCircularQueue {
     }
 
     public boolean deQueue() {
-        if (!isEmpty()) {
-            head++;
-            if (head == array.length) {
-                head = 0;
-            }
-            if (head == tail) {
-                reset();
-            }
-            return true;
+        if (isEmpty()) {
+            return false;
         }
-        return false;
+        head++;
+        if (head == array.length) {
+            head = 0;
+        }
+        if (head == tail) {
+            reset();
+        }
+        return true;
     }
 
     public int Front() {
@@ -51,7 +53,7 @@ class MyCircularQueue {
     }
 
     public boolean isEmpty() {
-        return (head == -1 && tail == -1);
+        return (head == -1);
     }
 
     public boolean isFull() {
