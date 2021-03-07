@@ -1,5 +1,7 @@
 package com.maartenmusic;
 
+import java.util.LinkedList;
+
 public class CircularQueue {
     private int head;
     private int tail;
